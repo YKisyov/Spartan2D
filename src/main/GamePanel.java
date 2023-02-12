@@ -10,6 +10,7 @@ public class GamePanel extends JPanel {
     private MouseInput mouseInput;
     private int xDelta = 100, yDelta = 100; //init position;
     private int frames;
+    private long lastCheckedForNewFrameAt = 0L;
 
     public GamePanel() {
         mouseInput = new MouseInput(this);
@@ -24,30 +25,25 @@ public class GamePanel extends JPanel {
         g.fillRect(xDelta, yDelta, 200, 50);
         frames++;
 
-        if
-
+        if (System.currentTimeMillis() - lastCheckedForNewFrameAt >= 1000) {
+            lastCheckedForNewFrameAt = System.currentTimeMillis();
+            System.out.println("FPS: " + frames);
+            frames =  0;
+        }
+        repaint();
     }
 
 
     public void setRectPosition(int x, int y) {
-        if (areXYinTheFrame(x, y)){
-            xDelta = x;
-            yDelta = y;
-            repaint();
-        }
-    }
-
-    private boolean areXYinTheFrame(int x, int y) {
-        return ((0 <= x && x <= 400) && (0 <= y && y <= 400));
+        xDelta = x;
+        yDelta = y;
     }
 
     public void changeXDelta(int value) {
         xDelta += value;
-        repaint();
     }
 
     public void changeYDelta(int value) {
         yDelta += value;
-        repaint();
     }
 }

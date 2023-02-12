@@ -12,6 +12,6 @@ public class GameWindow {
         jFrame.add(gamePanel);
         jFrame.setLocationRelativeTo(null);
         jFrame.setVisible(true);
-        jFrame.setResizable(false);
+        // jFrame.setResizable(false);
     }
 }
