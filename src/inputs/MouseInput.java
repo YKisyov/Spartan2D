@@ -15,10 +15,9 @@ public class MouseInput implements MouseListener, MouseMotionListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        //TODO remove after checking that polyRec works :)
-        if(e.getX() <= 400 && e.getY() <= 400){
-            gamePanel.spawnRect(e.getX(), e.getY());
-            System.out.println("Mouse was clicked and new Rec was added and drawn");
+        if(e.getX() <= gamePanel.getSize().width
+                && e.getY() <= gamePanel.getSize().height){
+            System.out.println("Mouse was clicked");
         }
     }
 
