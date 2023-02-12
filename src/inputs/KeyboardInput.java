@@ -19,11 +19,6 @@ public class KeyboardInput implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
         switch (e.getKeyCode()) {
 
             case KeyEvent.VK_W:
@@ -47,6 +42,12 @@ public class KeyboardInput implements KeyListener {
                 gamePanel.changeXDelta(5);
                 break;
         }
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
 
     }
 }
